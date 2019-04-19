@@ -12,7 +12,7 @@
       %div{:class => "logout_block"}
         %form{:action => "/logout", :method => "POST"}
           %input{:type => "submit", :value => "Logout"}
-          %input{:type => "hidden", :value => -@token}
+          %input{:type => "hidden", :name => "session", :value => -@token}
     %div
       %a{:href => -"/subs?session="+@token}My subscriptions
     %div
