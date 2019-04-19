@@ -1,11 +1,20 @@
 %html
+  %head
+    %title Register
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/register_styles.css"}
   %body
-    %form{:method => "POST", :action => '/register'}
-      %div
-        Login:
-        %input{:name => 'login', :type => 'text'}
-      %div
-        Password:
-        %input{:name => 'password', :type => 'password' }
-      %div
-        %button{:type => 'submit'}Register
+    %div{:class => "register_block"}
+      %div{:class => "register_item"}
+        Register
+      %form{:method => "POST", :action => '/register'}
+        %div{:class => "register_item"}
+          %input{:name => 'login', :type => 'text', :placeholder => "Type your login"}
+        %div{:class => "register_item"}
+          %input{:name => 'password', :type => 'password', :placeholder => "Type your password" }
+        %div{:class => "register_item"}
+          %input{:name => 'confirm_password', :type => 'password', :placeholder => "Confirm your password"}
+        %div{:class => "register_item"}
+          %div{:style => "width: 30%; margin-left: 35%; margin-right: 35%; font-size: 50%"}
+            Both login and password should contain only latin letters and numbers
+        %div{:class => "register_item"}
+          %button{:type => 'submit'}Register

@@ -88,7 +88,7 @@ get '/register' do
   haml :register
 end
 post '/register' do
-  register_response = RegisterResponse.new(params[:login],params[:password])
+  register_response = RegisterResponse.new(params[:login],params[:password],params[:confirm_password])
   res = register_response.register_status
   res += "<br><a href = '/'> Return to login page </a>"
   res

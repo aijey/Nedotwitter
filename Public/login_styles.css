@@ -1,0 +1,55 @@
+.left_block {
+  background-color: rgb(0,162,232);
+  height: 100%;
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+.right_block {
+  background-color: rgb(153,217,234);
+  float: right;
+  height: 100%;
+  width: 50%;
+  display: inline-block;
+}
+.nedo_best_block {
+  margin-top: 20%;
+  margin-bottom: 20%;
+  text-align: center;
+  height: 100%
+}
+.sign_in_block {
+  margin-top: 20%;
+  margin-bottom: 20%;
+  color: rgb(0,162,232);
+}
+.sign_in_item{
+  text-align: center;
+  height: 13%;
+  font-size: 50;
+  font-weight: bold;
+}
+.sign_in_item input {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  height: 30%;
+  width: 25%;
+  text-align: center;
+  font-size: 25%;
+}
+.sign_in_item button {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  height: 30%;
+  width: 25%;
+  text-align: center;
+  font-size: 25%;
+}
+.nedo_best_text {
+  height: 13%;
+  font-size: 50;
+  color: white;
+  font-weight: bold;
+}

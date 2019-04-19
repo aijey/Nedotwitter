@@ -1,7 +1,16 @@
 %html
+  %head
+    %title Home page | Nedo
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/home_styles.css"}
   %body
-    %div
-      This is your home page
+    %div{:class => "top"}
+      %div{:class => "block_for_logo"}
+      %div{:class => "search_block"}
+        %form{:action => "/search", :method => "POST"}
+          %input{:type => "hidden", :name => "session", :value => -@token}
+          %input{:type => "text", :name => "username", :placeholder => "Find users"}
+      %div{:class => "logout_block"}
+        Logout
     %div
       %a{:href => -"/subs?session="+@token}My subscriptions
     %div

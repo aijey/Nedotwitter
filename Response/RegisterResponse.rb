@@ -1,7 +1,11 @@
 class RegisterResponse
   attr_accessor :register_status
-  def initialize(login, password)
+  def initialize(login, password, confirm_password)
     if (legit(login) && legit(password))
+      if (password != confirm_password)
+        @register_status = "Passwords don't equal"
+        return;
+      end
       unless (User.new(login,password).login_already_taken?)
         File.write("./Data/Users.txt", login + " " + password + "\n", mode:"a")
         @register_status = "You have been successfully registered"

@@ -1,18 +1,34 @@
 %html
+  %head
+    %title Welcome at Nedo!
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/login_styles.css"}
   %body
-    %form{:method => "POST", :action => '/login'}
-      %div
-        Login:
-        %input{:name => 'login', :type => 'text'}
-      %div
-        Password:
-        %input{:name => 'password', :type => 'password' }
-      %div
-        %button{:type => 'submit'}Login
-      %div
-        %a{:href => '/register'}
-          I don't have an account
-      %div
-        %b{:style => "color: red"}
-          - if @incorrect_data == true
-            ="Invalid login or password"
+    %div{:class => "left_block"}
+      %div{:class => "nedo_best_block"}
+        %div{:class => "nedo_best_text"}
+          Nedo
+        %div{:class => "nedo_best_text"}
+          Is
+        %div{:class => "nedo_best_text"}
+          The
+        %div{:class => "nedo_best_text"}
+          Best
+    %div{:class => "right_block"}
+      %div{:class => "sign_in_block"}
+        %div{:class => "sign_in_item"}
+          Sign in
+        %form{:method => "POST", :action => '/login'}
+          %div{:class => "sign_in_item"}
+            %input{:name => 'login', :type => 'text', :placeholder => "Login"}
+          %div{:class => "sign_in_item"}
+            %input{:name => 'password', :type => 'password', :placeholder => "Password"}
+          %div{:class => "sign_in_item"}
+            %button{:type => "submit"}Sign in
+          %div{:class => "sign_in_item", :style => "font-size: 20; font-weight: normal"}
+            New here?
+            %a{:href => '/register'} Register
+            a new account.
+          %div{:class => "sign_in_item"}
+            %b{:style => "color: red; font-size: 20"}
+              - if @incorrect_data == true
+                ="Invalid login or password"

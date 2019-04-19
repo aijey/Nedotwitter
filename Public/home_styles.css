@@ -1,0 +1,18 @@
+.top {
+  margin: 0px;
+  width: 100%;
+  height: auto;
+}
+.block_for_logo {
+  display: inline-block;
+}
+.search_block {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 80%;
+}
+.logout_block {
+  display: inline-block;
+  width: 20%;
+}
