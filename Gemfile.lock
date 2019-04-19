@@ -1,6 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    haml (5.0.4)
+      temple (>= 0.8.0)
+      tilt
+    json (2.2.0)
     mustermann (1.0.3)
     rack (2.0.7)
     rack-protection (2.0.5)
@@ -10,12 +14,15 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.5)
       tilt (~> 2.0)
+    temple (0.8.1)
     tilt (2.0.9)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  haml
+  json
   rack
   sinatra
 
