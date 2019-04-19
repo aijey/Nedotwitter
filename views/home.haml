@@ -10,7 +10,9 @@
           %input{:type => "hidden", :name => "session", :value => -@token}
           %input{:type => "text", :name => "username", :placeholder => "Find users"}
       %div{:class => "logout_block"}
-        Logout
+        %form{:action => "/logout", :method => "POST"}
+          %input{:type => "submit", :value => "Logout"}
+          %input{:type => "hidden", :value => -@token}
     %div
       %a{:href => -"/subs?session="+@token}My subscriptions
     %div
