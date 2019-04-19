@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "author": "Misha",
+      "date": "09.04.19",
+      "content": "My name is Misha. And I'm a programmer!"
+    },
+    {
+      "author": "Misha",
+      "date": "09.04.19",
+      "content": "Link to my GitHub: https://github.com/MishaPrigara"
+    }
+  ]
+}

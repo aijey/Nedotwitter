@@ -1,0 +1,36 @@
+{
+  "Misha": [
+    {
+      "message": {
+        "from": "Igor",
+        "date": "09.04.19 12:36",
+        "content": ""
+      }
+    },
+    {
+      "message": {
+        "from": "Igor",
+        "date": "09.04.19 12:37",
+        "content": "Міша, коли будем писати треню?"
+      }
+    }
+  ],
+  "Petya": [
+    {
+      "message": {
+        "from": "Igor",
+        "date": "09.04.19 12:37",
+        "content": "Го в магаз!"
+      }
+    }
+  ],
+  "Artur": [
+    {
+      "message": {
+        "from": "Artur",
+        "date": "09.04.19 12:40",
+        "content": "Ігор, давай приходи уже!"
+      }
+    }
+  ]
+}

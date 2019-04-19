@@ -1,0 +1,13 @@
+%html
+  %body
+    %div
+      %a{:href =>"/home?session=#{@token}"}Home
+    %div
+      -@messages.each do |message|
+        %div=message
+    %div
+      %form{:method => "post", :action => "/send_message"}
+        %input{:type => "text", :name => "content"}
+        %input{:type => "hidden", :name => "session", :value => -@token}
+        %input{:type => "hidden", :name => "to", :value => -@username}
+        %button{:type => "submit"}Send message!

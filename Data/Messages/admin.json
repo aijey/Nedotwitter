@@ -1,0 +1,62 @@
+{
+  "azaza": [
+    {
+      "message": {
+        "from": "azaza",
+        "date": "09.04.19 12:21",
+        "content": "How are you:"
+      }
+    },
+    {
+      "message": {
+        "from": "azaza",
+        "date": "09.04.19 12:21",
+        "content": "?"
+      }
+    },
+    {
+      "message": {
+        "from": "admin",
+        "date": "09.04.19 12:22",
+        "content": "I',m fine, and you?"
+      }
+    },
+    {
+      "message": {
+        "from": "azaza",
+        "date": "09.04.19 12:22",
+        "content": "I'm fine too!"
+      }
+    },
+    {
+      "message": {
+        "from": "azaza",
+        "date": "09.04.19 12:22",
+        "content": "What are you doing today?"
+      }
+    },
+    {
+      "message": {
+        "from": "admin",
+        "date": "09.04.19 12:23",
+        "content": "Nothing special =("
+      }
+    }
+  ],
+  "Artur": [
+    {
+      "message": {
+        "from": "Artur",
+        "date": "19.04.19 12:05",
+        "content": "Hello"
+      }
+    },
+    {
+      "message": {
+        "from": "admin",
+        "date": "19.04.19 12:05",
+        "content": "hi"
+      }
+    }
+  ]
+}

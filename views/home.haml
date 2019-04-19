@@ -1,0 +1,28 @@
+%html
+  %body
+    %div
+      This is your home page
+    %div
+      %a{:href => -"/subs?session="+@token}My subscriptions
+    %div
+      %a{:href => "/feed?session=#{@token}"}My feed
+    %div
+      %a{:href => "/messages?session=#{@token}"}My messages
+    %div
+      Here is a list of your posts
+      - for i in 0...@posts.length
+        %div
+          =@posts[i]
+          %form{:action => "/delete", :method => "POST"}
+            %input{:type => "hidden", :name => "id", :value => -i.to_s}
+            %input{:type => "hidden", :name => "session", :value => -@token}
+            %button{:type => "submit"}X
+    %div
+      %form{:method => "POST", :action => ""}
+        %input{:name => "content", :type => "text"}
+        %div
+          %button{:type => "submit"}Add new post!
+    %div
+      %form{:action => "/logout", :method => "POST"}
+        %input{:type => "hidden", :name => "session", :value => -@token}
+        %button{:type => "submit"}Logout

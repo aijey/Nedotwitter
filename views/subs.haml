@@ -1,0 +1,19 @@
+%html
+  %body
+    %div
+      %a{:href =>"/home?session=#{@token}"}Home
+    %div
+      My subscriptions:
+      - @subs.each do |sub|
+        %div
+          =sub
+        %form{:action => "/add_sub", :method => "POST"}
+          %input{:type => "hidden", :name => "username", :value => -sub }
+          %input{:type => "hidden", :name => "session", :value => -@token }
+          %input{:type => "hidden", :name => "subscribed", :value => "true" }
+          %button{:type => "submit"}X
+    %div
+      %form{:action => "/search", :method => "POST"}
+        %input{:name => "username", :type => "text"}
+        %input{:name => "session", :type => "hidden", :value => -@token}
+        %button{:type => "submit"}Add

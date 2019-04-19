@@ -1,0 +1,11 @@
+%html
+  %body
+    %form{:method => "POST", :action => '/register'}
+      %div
+        Login:
+        %input{:name => 'login', :type => 'text'}
+      %div
+        Password:
+        %input{:name => 'password', :type => 'password' }
+      %div
+        %button{:type => 'submit'}Register

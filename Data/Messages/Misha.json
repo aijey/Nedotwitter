@@ -1,0 +1,87 @@
+{
+  "azaza": [
+    {
+      "message": {
+        "from": "azaza",
+        "date": "09.04.19 12:24",
+        "content": "Petya"
+      }
+    }
+  ],
+  "Igor": [
+    {
+      "message": {
+        "from": "Igor",
+        "date": "09.04.19 12:36",
+        "content": ""
+      }
+    },
+    {
+      "message": {
+        "from": "Igor",
+        "date": "09.04.19 12:37",
+        "content": "Міша, коли будем писати треню?"
+      }
+    }
+  ],
+  "Artur": [
+    {
+      "message": {
+        "from": "Misha",
+        "date": "09.04.19 12:41",
+        "content": "Ало, Артур"
+      }
+    },
+    {
+      "message": {
+        "from": "Artur",
+        "date": "09.04.19 12:41",
+        "content": "Що?"
+      }
+    },
+    {
+      "message": {
+        "from": "Misha",
+        "date": "09.04.19 12:41",
+        "content": "Го в магаз?"
+      }
+    },
+    {
+      "message": {
+        "from": "Artur",
+        "date": "09.04.19 12:41",
+        "content": "Нє"
+      }
+    },
+    {
+      "message": {
+        "from": "Misha",
+        "date": "09.04.19 12:41",
+        "content": "Тобі щось взяти?"
+      }
+    },
+    {
+      "message": {
+        "from": "Artur",
+        "date": "09.04.19 12:41",
+        "content": "Колу"
+      }
+    },
+    {
+      "message": {
+        "from": "Misha",
+        "date": "09.04.19 12:41",
+        "content": "Ок"
+      }
+    }
+  ],
+  "Vasya": [
+    {
+      "message": {
+        "from": "Vasya",
+        "date": "19.04.19 11:05",
+        "content": "Привіт"
+      }
+    }
+  ]
+}

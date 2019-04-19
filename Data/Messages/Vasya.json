@@ -1,0 +1,27 @@
+{
+  "azaza": [
+    {
+      "message": {
+        "from": "azaza",
+        "date": "19.04.19 11:03",
+        "content": "Hello, where are you?"
+      }
+    },
+    {
+      "message": {
+        "from": "Vasya",
+        "date": "19.04.19 11:04",
+        "content": "Home"
+      }
+    }
+  ],
+  "Misha": [
+    {
+      "message": {
+        "from": "Vasya",
+        "date": "19.04.19 11:05",
+        "content": "Привіт"
+      }
+    }
+  ]
+}

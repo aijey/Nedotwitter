@@ -1,0 +1,18 @@
+%html
+  %body
+    %form{:method => "POST", :action => '/login'}
+      %div
+        Login:
+        %input{:name => 'login', :type => 'text'}
+      %div
+        Password:
+        %input{:name => 'password', :type => 'password' }
+      %div
+        %button{:type => 'submit'}Login
+      %div
+        %a{:href => '/register'}
+          I don't have an account
+      %div
+        %b{:style => "color: red"}
+          - if @incorrect_data == true
+            ="Invalid login or password"

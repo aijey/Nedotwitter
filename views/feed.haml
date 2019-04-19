@@ -1,0 +1,8 @@
+%html
+  %body
+    %div
+      %a{:href =>"/home?session=#{@token}"}Home
+    %div
+      -@users_posts.each do |posts|
+        -posts.each do |post|
+          %div=post
