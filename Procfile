@@ -1,1 +1,1 @@
-web: ruby app.rb -p 8008
+web: ruby app.rb
