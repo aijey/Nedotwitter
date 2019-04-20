@@ -1,24 +1,31 @@
-%html
-  %body
-    %div
-      %a{:href =>"/home?session=#{@token}"}Home
-    %div
-      ="Here are #{@username}'s posts:"
-      - @posts.each do |post|
-        %div=post
-    %div
-      %form{:action => "/add_sub", :method => "post"}
-        %input{:type => "hidden", :name => "session", :value => -@token}
-        %input{:type => "hidden", :name => "username", :value => -@username}
-        %input{:type => "hidden", :name => "subscribed", :value => -@subscribed.to_s}
-        %button{:type => "submit"}
-          - if @subscribed
-            ="Unsubcribe!"
-          - else
-            ="Subscribe!"
-    %div
-      %form{:method => "post", :action => "/send_message"}
-        %input{:type => "text", :name => "content"}
-        %input{:type => "hidden", :name => "session", :value => -@token}
-        %input{:type => "hidden", :name => "to", :value => -@username}
-        %button{:type => "submit"}Send message!
+.profile
+  .profile_name
+    =@username
+  %form{:action => "/add_sub", :method => "post", :class=>"button_subscribe"}
+    %input{:type => "hidden", :name => "session", :value => -@token}
+    %input{:type => "hidden", :name => "username", :value => -@username}
+    %input{:type => "hidden", :name => "subscribed", :value => -@subscribed.to_s}
+    %button{:type => "submit"}
+      -if @subscribed
+        ="Unsubscribe"
+      -else
+        ="Subscribe"
+  %div
+    .profile_text
+      Posts:
+    .profile_value
+      =@cnt_posts
+    .profile_text
+      Subscribers:
+    .profile_value
+      =@cnt_subscribers
+
+
+- for i in 0...@posts.length
+  %div{:class => "post"}
+    %a{:href => "/search/" + -@posts[i]["author"] + "?session=" + -@token}
+      =@posts[i]["author"]
+    posted on
+    =@posts[i]["date"] + " :"
+    %br
+    =@posts[i]["content"]

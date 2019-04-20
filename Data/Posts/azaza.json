@@ -2,13 +2,28 @@
   "posts": [
     {
       "author": "azaza",
-      "date": "09.04.19",
+      "date": "09.04.19 12:12",
       "content": "Hi guys! I'm new here!"
     },
     {
       "author": "azaza",
-      "date": "20.04.19",
+      "date": "20.04.19 12:12",
       "content": "My name is azaza"
+    },
+    {
+      "author": "azaza",
+      "date": "20.04.19 12:12",
+      "content": "Hi, my name is Mickey Mouse!"
+    },
+    {
+      "author": "azaza",
+      "date": "20.04.19 18:00",
+      "content": "Layouts work!"
+    },
+    {
+      "author": "azaza",
+      "date": "20.04.19 18:15",
+      "content": "Subscribers count works!"
     }
   ]
 }

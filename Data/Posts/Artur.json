@@ -2,13 +2,28 @@
   "posts": [
     {
       "author": "Artur",
-      "date": "09.04.19",
+      "date": "09.04.19 12:12",
       "content": "Hi, my name is Artur. I'm keen on coding. "
     },
     {
       "author": "Artur",
-      "date": "09.04.19",
+      "date": "09.04.19 12:12",
       "content": "Enjoy making interesting project. I'm always ready to learn"
+    },
+    {
+      "author": "Artur",
+      "date": "20.04.19 12:12",
+      "content": "I finished making profile page on Nedo!"
+    },
+    {
+      "author": "Artur",
+      "date": "20.04.19 15:31",
+      "content": "Changes in home page..."
+    },
+    {
+      "author": "Artur",
+      "date": "20.04.19 18:40",
+      "content": "I think it's better to show time in hours and minutes =)"
     }
   ]
 }

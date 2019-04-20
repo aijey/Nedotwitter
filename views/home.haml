@@ -1,38 +1,28 @@
-%html
-  %head
-    %title Home page | Nedo
-    %link{:rel => "stylesheet", :type => "text/css", :href => "/home_styles.css"}
-  %body
-    %div{:class => "top"}
-      %div{:class => "block_for_logo"}
-        %b{:style => "color:white; text-align:center"}
-          N e d o
-      %div{:class => "search_block"}
-        %form{:action => "/search", :method => "POST", :style => "margin-left: 30px"}
-          %input{:type => "hidden", :name => "session", :value => -@token}
-          %input{:type => "text", :name => "username", :placeholder => "Find users"}
-      %div{:class => "logout_block"}
-        %form{:action => "/logout", :method => "POST"}
-          %input{:type => "submit", :value => "Logout"}
-          %input{:type => "hidden", :name => "session", :value => -@token}
-    %div{:class => "main"}
-      %div{:class => "menu"}
-        %div{:onclick => -"location.href = '/subs?session="+@token + "'"}
-          My subscriptions
-        %div{:onclick => -"location.href = '/feed?session="+@token + "'"}
-          My feed
-        %div{:onclick => -"location.href = '/messages?session="+@token + "'"}
-          My messages
-      %div{:class => "posts_block"}
-        Here is a list of your posts
-        - for i in 0...@posts.length
-          %div
-            =@posts[i]
-            %form{:action => "/delete", :method => "POST"}
-              %input{:type => "hidden", :name => "id", :value => -i.to_s}
-              %input{:type => "hidden", :name => "session", :value => -@token}
-              %button{:type => "submit"}X
-        %form{:method => "POST", :action => ""}
-          %input{:name => "content", :type => "text"}
-          %div
-            %button{:type => "submit"}Add new post!
+.profile
+  .profile_name
+    =@username
+  %div
+    .profile_text
+      Posts:
+    .profile_value
+      =@cnt_posts
+    .profile_text
+      Subscribers:
+    .profile_value
+      =@cnt_subscribers
+%div
+  %form{:method => "POST", :action => "", :style => "display:inline-block"}
+    %input{:name => "content", :type => "text", :placeholder => "What's new?"}
+    %button{:type => "submit"}SHARE
+- for i in 0...@posts.length
+  %div{:class => "post"}
+    %a{:href => "/search/" + -@posts[i]["author"] + "?session=" + -@token}
+      You
+    posted on
+    =@posts[i]["date"] + " :"
+    %br
+    =@posts[i]["content"]
+    %form{:action => "/delete", :method => "POST", :style => "width: 100%"}
+      %input{:type => "hidden", :name => "id", :value => -(@posts.length-i-1).to_s}
+      %input{:type => "hidden", :name => "session", :value => -@token}
+      %button{:type => "submit"}Delete

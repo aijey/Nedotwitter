@@ -1,8 +1,8 @@
-%html
-  %body
-    %div
-      %a{:href =>"/home?session=#{@token}"}Home
-    %div
-      -@users_posts.each do |posts|
-        -posts.each do |post|
-          %div=post
+- for i in 0...@posts.length
+  %div{:class => "post"}
+    %a{:href => "/search/" + -@posts[i]["author"] + "?session=" + -@token}
+      =@posts[i]["author"]
+    posted on
+    =@posts[i]["date"] + " :"
+    %br
+    =@posts[i]["content"]

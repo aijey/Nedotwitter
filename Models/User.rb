@@ -6,6 +6,15 @@ class User
     @login = login
     @password = password
   end
+  def corectize!
+    File.foreach("./Data/Users.txt") do |line|
+      user = line.split(' ')
+      if (user[0].downcase == @login.downcase)
+        @login = user[0]
+        return;
+      end
+    end
+  end
   def get_posts
     unless (File.exists?("./Data/Posts/#{@login}.json"))
       doc = File.open("./Data/Posts/#{@login}.json", mode: "w+")
@@ -42,6 +51,29 @@ class User
     document_data = File.open("./Data/Subs/#{@login}.txt", mode: "r").read
     document_data.split("\n")
   end
+  def set_subs_cnt cnt
+    unless (File.exists?("./Data/Subs/#{@login}_cnt_subs.txt"))
+      doc = File.open("./Data/Subs/#{@login}_cnt_subs.txt", mode: "w+")
+      p "FILE DOESNT EXIST"
+      doc.write(cnt)
+      doc.close
+    else
+      doc = File.open("./Data/Subs/#{@login}_cnt_subs.txt", mode: "w")
+      doc.write(cnt)
+      doc.close
+    end
+  end
+  def get_subs_cnt
+    unless (File.exists?("./Data/Subs/#{@login}_cnt_subs.txt"))
+      doc = File.open("./Data/Subs/#{@login}_cnt_subs.txt", mode: "w+")
+      doc.write('0')
+      doc.close
+    end
+    doc = File.open("./Data/Subs/#{@login}_cnt_subs.txt", mode: "r")
+    cnt = doc.read.to_i
+    doc.close
+    return cnt
+  end
   def add_sub username
     unless (File.exists?("./Data/Subs/#{@login}.txt"))
       doc = File.open("./Data/Subs/#{@login}.txt", mode: "w+")
@@ -50,6 +82,10 @@ class User
     doc = File.open("./Data/Subs/#{@login}.txt", mode: "a")
     doc.write(username + "\n")
     doc.close
+    profile_user = User.new(username, nil);
+    cnt = profile_user.get_subs_cnt
+    cnt+=1
+    profile_user.set_subs_cnt cnt
   end
   def delete_sub username
     unless (File.exists?("./Data/Subs/#{@login}.txt"))
@@ -63,6 +99,10 @@ class User
     doc = File.open("./Data/Subs/#{@login}.txt", mode: "w")
     data.each {|x| doc.write(x+"\n")}
     doc.close
+    profile_user = User.new(username, nil);
+    cnt = profile_user.get_subs_cnt
+    cnt-=1
+    profile_user.set_subs_cnt cnt
   end
   def get_dialogs
     unless (File.exists?("./Data/Messages/#{@login}.json"))

@@ -1,0 +1,28 @@
+%html
+  %head
+    %title
+      =@title
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/home_styles.css"}
+  %body
+    %div{:class => "top"}
+      %div{:class => "block_for_logo"}
+        %b{:style => "color:white; text-align:center"}
+          N e d o
+      %div{:class => "search_block"}
+        %form{:action => "/search", :method => "POST", :style => "margin-left: 30px"}
+          %input{:type => "hidden", :name => "session", :value => -@token}
+          %input{:type => "text", :name => "username", :placeholder => "Find users"}
+      %div{:class => "logout_block"}
+        %form{:action => "/logout", :method => "POST"}
+          %input{:type => "submit", :value => "Logout"}
+          %input{:type => "hidden", :name => "session", :value => -@token}
+    %div{:class => "main"}
+      %div{:class => "menu"}
+        %div{:onclick => -"location.href = '/subs?session="+@token + "'"}
+          My subscriptions
+        %div{:onclick => -"location.href = '/feed?session="+@token + "'"}
+          My feed
+        %div{:onclick => -"location.href = '/messages?session="+@token + "'"}
+          My messages
+      %div{:class => "posts_block"}
+        =yield

@@ -42,8 +42,13 @@ get '/home' do
   if user != nil
     @token = token.token
     # p user.login
-    @posts = user.get_posts
-    haml :home
+    @posts = user.get_posts.reverse
+    @title = "Home page | Nedo"
+    @username = user.login
+    @cnt_posts = @posts.length
+    @cnt_subscribers = user.get_subs_cnt
+
+    haml :home, :layout => :logged_layout
   else
     print_invalid_session
   end
@@ -53,12 +58,17 @@ post '/home' do
   token = Token.new(params[:session])
   user = Users.find_user_by_token token
   if user != nil
-    time = Time.now.strftime("%d.%m.%y")
+    time = Time.now.strftime("%d.%m.%y %H:%M")
     post = Post.new(user.login, time, params[:content])
     user.add_post post
     @token = token.token
     @posts = user.get_posts
-    haml :home
+    @posts.reverse!
+    @title = "Home page | Nedo"
+    @username = user.login
+    @cnt_subscribers = user.get_subs_cnt
+    @cnt_posts = @posts.length
+    haml :home, :layout => :logged_layout
   else
     print_invalid_session
   end
@@ -108,15 +118,22 @@ get '/subs' do
   end
 end
 
-post '/search' do
+get '/search/:username' do
   token = Token.new(params[:session])
   user = User.new(params[:username],nil)
   unless user.login_already_taken?
     return "User doesn't exist" + "<br><a href='/subs?session=#{token.token}'>Return to subs page</a>"
   else
+    user.corectize!
+    if (Users.find_user_by_token(token)!=nil &&
+      user.login == Users.find_user_by_token(token).login)
+      redirect "/home?session=#{token.token}"
+    end
     @token = token.token
-    @username = params[:username]
-    @posts = user.get_posts
+    @username =  user.login
+    @posts = user.get_posts.reverse
+    @cnt_subscribers = user.get_subs_cnt
+    @cnt_posts = @posts.length
     logged_user = Users.find_user_by_token token
     if logged_user !=nil && logged_user.get_subs.include?(@username)
       @subscribed = true
@@ -124,7 +141,35 @@ post '/search' do
       @subscribed = false
     end
     # p @subscribed
-    haml :user_posts
+    haml :user_posts, :layout => :logged_layout
+  end
+end
+
+post '/search' do
+  token = Token.new(params[:session])
+  user = User.new(params[:username],nil)
+  unless user.login_already_taken?
+    return "User doesn't exist" + "<br><a href='/subs?session=#{token.token}'>Return to subs page</a>"
+  else
+    user.corectize!
+    @title = "#{user.login} | Nedo"
+    if (Users.find_user_by_token(token) != nil &&
+      user.login == Users.find_user_by_token(token).login)
+      redirect "/home?session=#{token.token}"
+    end
+    @token = token.token
+    @username = user.login
+    @posts = user.get_posts.reverse
+    @cnt_subscribers = user.get_subs_cnt
+    @cnt_posts = @posts.length
+    logged_user = Users.find_user_by_token token
+    if logged_user !=nil && logged_user.get_subs.include?(@username)
+      @subscribed = true
+    else
+      @subscribed = false
+    end
+    # p @subscribed
+    haml :user_posts, :layout => :logged_layout
   end
 end
 
@@ -151,12 +196,20 @@ get '/feed' do
   else
     @token = token.token
     subs = user.get_subs
-    @users_posts = []
+    @posts = []
     subs.each do |sub|
       sub_user = User.new(sub,nil)
-      @users_posts.push(sub_user.get_posts)
+      sub_user_posts = sub_user.get_posts
+      sub_user_posts.each {|post| @posts << post}
     end
-    haml :feed
+
+    @posts = @posts.sort do |post1, post2|
+      date1 = DateTime.strptime(post1["date"], "%d.%m.%y %H:%M")
+      date2 = DateTime.strptime(post2["date"], "%d.%m.%y %H:%M")
+      date2 <=> date1
+    end
+
+    haml :feed, :layout => :logged_layout
   end
 end
 

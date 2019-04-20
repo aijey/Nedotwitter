@@ -1,5 +1,14 @@
 {
   "posts": [
-
+    {
+      "author": "admin",
+      "date": "20.04.19 12:12",
+      "content": "Hi"
+    },
+    {
+      "author": "admin",
+      "date": "20.04.19 12:12",
+      "content": "Admin tut"
+    }
   ]
 }
