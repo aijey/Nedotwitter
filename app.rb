@@ -14,7 +14,7 @@ set :public_folder, File.dirname(__FILE__) + '/secret'
 # set :static_cache_control, [:public, :max_age => 300]
 
 def print_invalid_session
-  res = "<p style='color: red'>Invalid session</p>"
+  res = "<p style='color: red'>Dick session</p>"
   res += '<br><a href="/">Return to login page</a>'
   res
 end
