@@ -104,7 +104,6 @@ post '/register' do
   res = register_response.register_status
   res += "<br><a href = '/'> Return to login page </a>"
   res
-  
 end
 
 get '/subs' do
