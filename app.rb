@@ -9,6 +9,7 @@ require './Models/Message.rb'
 require 'date'
 require 'socket'
 
+set :bind, '0.0.0.0'
 set :public_folder, File.dirname(__FILE__) + '/secret'
 # set :static_cache_control, [:public, :max_age => 300]
 
