@@ -73,6 +73,55 @@
         "date": "09.04.19 12:41",
         "content": "Ок"
       }
+    },
+    {
+      "message": {
+        "from": "Artur",
+        "date": "30.04.19 14:38",
+        "content": "Привіт"
+      }
+    },
+    {
+      "message": {
+        "from": "Misha",
+        "date": "30.04.19 14:38",
+        "content": "Привіт"
+      }
+    },
+    {
+      "message": {
+        "from": "Misha",
+        "date": "30.04.19 14:39",
+        "content": "Як справи?"
+      }
+    },
+    {
+      "message": {
+        "from": "Artur",
+        "date": "30.04.19 14:39",
+        "content": "Норм, а в тебе?"
+      }
+    },
+    {
+      "message": {
+        "from": "Misha",
+        "date": "30.04.19 14:39",
+        "content": "В мене тож не погано. Ти щось хотів?"
+      }
+    },
+    {
+      "message": {
+        "from": "Artur",
+        "date": "30.04.19 14:39",
+        "content": "Хотів запитати як тобі фронт?"
+      }
+    },
+    {
+      "message": {
+        "from": "Misha",
+        "date": "30.04.19 14:40",
+        "content": "Нормально)"
+      }
     }
   ],
   "Vasya": [

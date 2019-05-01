@@ -20,6 +20,9 @@
     .profile_value
       =@cnt_subscribers
 
+  %a{:href => "/messages/#{@username}?session=#{@token}"}
+    Start chatting!
+
 
 - for i in 0...@posts.length
   %div{:class => "post"}

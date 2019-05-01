@@ -1,8 +1,11 @@
-%html
-  %body
-    %div
-      %a{:href =>"/home?session=#{@token}"}Home
-    %div
-      -@dialogs.each do |dialog,messages|
-        %div
-          %a{:href => "/messages/#{dialog}?session=#{@token}"}=dialog
+- @dialogs.each do |user,messages|
+  %div{:class => "dialog_block", :onclick => -"location.href = 'messages/#{user}?session=#{@token}'"}
+    .username_block
+      =user
+    .last_message_time
+      =messages[-1]["message"]["date"]
+    .last_message
+      - if messages[-1]["message"]["from"] == user
+        =messages[-1]["message"]["content"]
+      - else
+        ="You: #{messages[-1]["message"]["content"]}"

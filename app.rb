@@ -110,9 +110,18 @@ get '/subs' do
   token = Token.new(params[:session])
   user = Users.find_user_by_token token
   if user != nil
-    @subs = user.get_subs
+    subs = user.get_subs
+    @username = []
+    @cnt_subscribers = []
+    @cnt_posts = []
+    subs.each do |sub|
+      user_sub = User.new(sub, nil)
+      @cnt_subscribers << user_sub.get_subs_cnt
+      @cnt_posts << user_sub.get_posts.length
+      @username << sub
+    end
     @token = token.token
-    haml :subs
+    haml :subs, :layout => :logged_layout
   else
     print_invalid_session
   end
@@ -221,7 +230,7 @@ get '/messages' do
   else
     @token = token.token
     @dialogs = user.get_dialogs
-    haml :dialogs
+    haml :dialogs, :layout => :logged_layout
   end
 end
 
@@ -231,10 +240,10 @@ get '/messages/:username' do
   if (user == nil)
     print_invalid_session
   else
-    @username = params[:username]
+    @dialog_with = params[:username]
     @token = token.token
-    @messages = user.get_dialogs[@username]
-    haml :messages
+    @messages = user.get_dialogs[@dialog_with]
+    haml :messages, :layout => :logged_layout
   end
 end
 

@@ -1,19 +1,18 @@
-%html
-  %body
+- for i in (0...@username.length)
+  .profile
+    .profile_name
+      =@username[i]
+    %form{:action => "/add_sub", :method => "post", :class=>"button_subscribe"}
+      %input{:type => "hidden", :name => "session", :value => -@token}
+      %input{:type => "hidden", :name => "username", :value => -@username[i]}
+      %input{:type => "hidden", :name => "subscribed", :value => "true"}
+      %button{:type => "submit"}Unsubscribe
     %div
-      %a{:href =>"/home?session=#{@token}"}Home
-    %div
-      My subscriptions:
-      - @subs.each do |sub|
-        %div
-          =sub
-        %form{:action => "/add_sub", :method => "POST"}
-          %input{:type => "hidden", :name => "username", :value => -sub }
-          %input{:type => "hidden", :name => "session", :value => -@token }
-          %input{:type => "hidden", :name => "subscribed", :value => "true" }
-          %button{:type => "submit"}X
-    %div
-      %form{:action => "/search", :method => "POST"}
-        %input{:name => "username", :type => "text"}
-        %input{:name => "session", :type => "hidden", :value => -@token}
-        %button{:type => "submit"}Add
+      .profile_text
+        Posts:
+      .profile_value
+        =@cnt_posts[i]
+      .profile_text
+        Subscribers:
+      .profile_value
+        =@cnt_subscribers[i]

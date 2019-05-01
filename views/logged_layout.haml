@@ -5,7 +5,7 @@
     %link{:rel => "stylesheet", :type => "text/css", :href => "/home_styles.css"}
   %body
     %div{:class => "top"}
-      %div{:class => "block_for_logo"}
+      %div{:class => "block_for_logo", :onclick => "location.href = '/home?session=" + -@token + "';"}
         %b{:style => "color:white; text-align:center"}
           N e d o
       %div{:class => "search_block"}

@@ -1,13 +1,15 @@
-%html
-  %body
-    %div
-      %a{:href =>"/home?session=#{@token}"}Home
-    %div
-      -@messages.each do |message|
-        %div=message
-    %div
-      %form{:method => "post", :action => "/send_message"}
-        %input{:type => "text", :name => "content"}
-        %input{:type => "hidden", :name => "session", :value => -@token}
-        %input{:type => "hidden", :name => "to", :value => -@username}
-        %button{:type => "submit"}Send message!
+- if @messages != nil
+  - @messages.each do |item|
+    -value = item["message"]
+    .profile
+      .username_block
+        =value["from"]
+      .last_message_time
+        =value["date"]
+      .last_message
+        =value["content"]
+%form{:method => "POST", :action => "/send_message", :style => "display:inline-block"}
+  %input{:name => "content", :type => "text", :placeholder => "Write a message"}
+  %input{:name => "to", :type => "hidden", :value => -@dialog_with }
+  %input{:name => "session", :type => "hidden", :value => -@token}
+  %button{:type => "submit"}Send
